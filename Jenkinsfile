@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                        withDockerRegistry(credentialsId: 'Dockerhub_credentials', toolName: 'docker') {
-                         sh " docker build -t pichashy/frontent:latest . "
+                         sh " docker build -t pichashy/frontend:latest . "
                     }
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'Dockerhub_credentials', toolName: 'docker') {
-                      sh "docker push  pichashy/frontent:latest  "
+                      sh "docker push  pichashy/frontend:latest  "
                     }
                 }
             }
