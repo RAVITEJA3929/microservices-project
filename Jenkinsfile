@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                   withDockerRegistry(credentialsId: 'dockerhub_credentials') {
+                   withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
                    sh " docker build -t pichashy/adservice:latest . "
                   }
                 }
@@ -15,7 +15,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'dockerhub_credentials') {
+                    withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
                      sh "docker push  pichashy/adservice:latest  "
                     }
                 }
