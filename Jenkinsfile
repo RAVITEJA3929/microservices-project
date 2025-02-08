@@ -5,10 +5,8 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    dir ('src'){
                        withDockerRegistry(credentialsId: 'docker_credentials') {
                          sh " docker build -t pichashy/loadgenerator:latest . "
-                         }
                     }
                 }
             }
