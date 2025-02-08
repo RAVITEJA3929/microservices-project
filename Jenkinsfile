@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     dir ('src'){
-                       withDockerRegistry(credentialsId: 'docker_credentials') {
+                       withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
                        sh " docker build -t pichashy/cartservice:latest . "
                          }
                     }
@@ -17,7 +17,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker_credentials') {
+                    withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
                      sh "docker push  pichashy/cartservice:latest  "
                     }
                 }
