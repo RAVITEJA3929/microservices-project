@@ -5,9 +5,9 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                       withDockerRegistry(credentialsId: 'Dockerhub_credentials', toolName: 'docker') {
-                         sh " docker build -t pichashy/frontend:latest . "
-                    }
+                   withDockerRegistry(credentialsId: 'docker-cred') {
+                   sh " docker build -t rohit630/frontend:latest . "
+                  }
                 }
             }
         }
@@ -15,8 +15,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Dockerhub_credentials', toolName: 'docker') {
-                      sh "docker push  pichashy/frontend:latest  "
+                    withDockerRegistry(credentialsId: 'docker-cred') {
+                     sh "docker push rohit630/frontend:latest  "
                     }
                 }
             }
