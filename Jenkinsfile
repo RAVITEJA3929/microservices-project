@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                      withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
+                      withDockerRegistry(credentialsId: 'docker-cred') {
                         sh " docker build -t rohit630/recommendationservice:latest . "
                    }
                 }
@@ -15,7 +15,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
+                    withDockerRegistry(credentialsId: 'docker-cred') {
                       sh "docker push  rohit630/recommendationservice:latest  "
                     }
                 }
