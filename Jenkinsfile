@@ -5,9 +5,9 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                       withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
-                         sh " docker build -t pichashy/loadgenerator:latest . "
-                    }
+                   withDockerRegistry(credentialsId: 'docker-cred') {
+                   sh " docker build -t rohit630/loadgenerator:latest . "
+                  }
                 }
             }
         }
@@ -15,8 +15,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Dockerhub_credentials') {
-                      sh "docker push  pichashy/loadgenerator:latest  "
+                    withDockerRegistry(credentialsId: 'docker-cred') {
+                     sh "docker push rohit630/loadgenerator:latest  "
                     }
                 }
             }
