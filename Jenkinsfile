@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                    withDockerRegistry(credentialsId: 'docker-cred') {
-                   sh " docker build -t rohit630/cartservice:latest src/"
+                   sh " docker build -t RAVITEJA3929/cartservice:latest src/"
                   }
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                     sh "docker push rohit630/cartservice:latest"
+                     sh "docker push RAVITEJA3929/cartservice:latest"
                     }
                 }
             }
